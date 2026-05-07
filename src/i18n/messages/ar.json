@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "title": "ريببلك برجر",
+    "description": "أفضل البرجر في المدينة"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "menu": "القائمة",
+    "category": "التصنيف",
+    "extra": "الإضافات",
+    "about": "عنّا",
+    "contact": "تواصل معنا",
+    "Dashboard": "لوحة التحكم",
+    "branches": "الفروع",
+    "orders": "الطلبات",
+    "coupons": "الكوبونات",
+    "marketing": "التسويق",
+    "loyaltyProgram": "برنامج الولاء",
+    "users": "المستخدمين",
+    "staff": "الموظفين",
+    "refund": "الاسترجاع",
+    "settings": "الإعدادات",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج"
+},
+  "hero": {
+    "title": "مرحباً بكم في ريببلك برجر",
+    "subtitle": "جرب طعم التميز",
+    "cta": "اطلب الآن"
+  },
+   "auth": {
+    "welcomeBack": "مرحباً بعودتك",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "enteremail": "أدخل بريدك الإلكتروني",
+    "enterPassword": "أدخل كلمة المرور",
+    "forgotPassword": "نسيت كلمة المرور?",
+    "rememberMe": "تذكرني",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل"
+  },
+  "statsCards": {
+    "ordersTotal": "إجمالي الطلبات",
+    "revenues": "إجمالي الإيرادات",
+    "refundRequests": "طلبات الاسترجاع",
+    "pendingOrders": "الطلبات المعلقة",
+    "changeDate": "مقارنة بالأمس"
+  },
+  "Dashboard": {
+    "mainTitle": "لوحة التحكم",
+    "welcomeMessage": "مرحباً بعودتك"
+  },
+  "tables": {
+    "latestOrders": "أحدث الطلبات",
+    "viewAll": "عرض الكل"
+  },
+  "Settings": {
+    "mainTitle": "الإعدادات",
+    "alertsTitle": "التنبيهات والإشعارات",
+    "alertsSubtitle": "اختر الأحداث التي تؤدي إلى إرسال رسالة تلقائية.",
+    "emailAlerts": "تنبيهات البريد الإلكتروني",
+    "emailAlertsDesc": "إرسال إشعار عبر البريد الإلكتروني عند حدوث أحداث مهمة مثل الطلبات الجديدة أو طلبات الاسترجاع",
+    "refundAlerts": "تنبيهات الاسترجاع",
+    "refundAlertsDesc": "إشعار الإدارة عند طلب استرجاع",
+    "weeklyReports": "تقارير الأداء الأسبوعية",
+    "weeklyReportsDesc": "ملخص تلقائي لإيرادات وأداء الأسبوع",
+    "securityTitle": "الأمان والخصوصية",
+    "securitySubtitle": "إدارة إعدادات الأمان",
+    "twoFactorAuth": "التحقق من الهوية الثنائية",
+    "twoFactorAuthDesc": "إضافة طبقة إضافية من الأمان إلى حسابك",
+    "loginAlerts": "تنبيهات تسجيل الدخول",
+    "currentPassword": "كلمة المرور الحالية",
+    "newPassword": "اقل عدد 9 حروف",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "saveChange": "حفظ التغييرات",
+    "cancel": "إلغاء",
+    "currentPasswordLabel": "كلمة المرور الحالية",
+    "newPasswordLabel": "كلمة المرور الجديدة",
+    "confirmPasswordLabel": "تأكيد كلمة المرور"
+  },
+  "Orders":{
+    "mainTitle": "إدارة الطلبات",
+    "searchPlaceholder": "ابحث عن الطلبات",
+    "allBranches": " كل الفروع",
+    "paymentAll":" كل طرق الدفع",
+    "dateLabel": "التاريخ",
+    "all": "الكل",
+    "Pending": "معلق",
+    "Preparing": "قيد التحضير",
+    "Delivered": "تم التسليم",
+    "Cancelled": "ملغى",
+    "filterStatus": "تصفية حسب الحالة",
+    "filterDate": "تصفية حسب التاريخ",
+    "orderId": "رقم الطلب"
+
+  },
+  "Refund":{
+    "mainTitle": "طلبات الاسترجاع",
+    "statusAll": "الحالة: ",
+    "allBranches": "كل الفروع",
+    "searchPlaceholder": "ابحث عن رقم الطلب أو رقم الاسترجاع أو المستخدم...",
+    "submittedOn": "تم التقديم في",
+    "order": "الطلب",
+    "previousRefunds": "الاسترجاعات السابقة",
+    "requestcreated": "تم إنشاء الطلب",
+    "autoAssigned": "تم تعيينه تلقائيًا إلى المشرف",
+    "quantity": "الكمية",
+    "PRICE": "السعر",
+    "ITEM": "العنصر",
+    "SubTotal":"المجموع الفرعي",
+    "Tax":"الضريبة",
+    "Total": "المجموع",
+    "contextPlaceHolder":"يرجى تقديم سبب طلب الاسترجاع، مثل جودة الطعام أو التأخير في التسليم. كلما زادت التفاصيل، كان بإمكاننا معالجة طلبك بشكل أسرع.",
+    "Reject": "رفض",
+    "Approve": "موافقة",
+    "RefundReason" : "سبب الاسترجاع",
+    "CustomerStatement": "بيان العميل",
+    "Gallery": "المعرض",
+    "ContactCustomer": "تواصل مع العميل",
+    "Order Summary": "ملخص الطلب",
+    "Request History": "تاريخ الطلب",
+    "User Information": "معلومات المستخدم",
+    "View Full Profile": "عرض الملف الشخصي الكامل",
+    "Admin Decision": "قرار المشرف",
+    "InternalNotes": "ملاحظات داخلية"
+
+
+  }
+}
