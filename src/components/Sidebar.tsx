@@ -19,31 +19,47 @@ import menu from "@/./../public/images/menu.svg";
 import arrDown from "@/./../public/images/arr down.svg";
 
 export default function Sidebar() {
-  const t = useTranslations("navigation");
+  const t        = useTranslations("navigation");
   const pathname = usePathname();
 
-  const [menuOpen, setMenuOpen] = useState(pathname.startsWith("/menu"));
+  // Each expandable item gets its own key in this record
+  const [openItems, setOpenItems] = useState<Record<string, boolean>>({
+    "/menu":  pathname.startsWith("/menu"),
+    "/staff": pathname.startsWith("/staff"),
+  });
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  const toggleItem = (href: string) =>
+    setOpenItems((prev) => ({ ...prev, [href]: !prev[href] }));
+
   const links = [
-    { href: "/dashboard", label: t("Dashboard"), icon: dashboard },
-    { href: "/branches", label: t("branches"), icon: branches },
-    { href: "/orders", label: t("orders"), icon: orders },
-    { href: "/coupons", label: t("coupons"), icon: coupons },
-    { href: "/marketing", label: t("marketing"), icon: marketing },
+    { href: "/dashboard",     label: t("Dashboard"),     icon: dashboard      },
+    { href: "/branches",      label: t("branches"),      icon: branches       },
+    { href: "/orders",        label: t("orders"),        icon: orders         },
+    { href: "/coupons",       label: t("coupons"),       icon: coupons        },
+    { href: "/marketing",     label: t("marketing"),     icon: marketing      },
     {
       href: "/menu",
       label: t("menu"),
       icon: menu,
       children: [
         { href: "/menu/category", label: t("category") },
-        { href: "/menu/extra", label: t("extra") },
+        { href: "/menu/extra",    label: t("extra")    },
       ],
     },
     { href: "/loyaltyProgram", label: t("loyaltyProgram"), icon: loayaltyProgram },
-    { href: "/users", label: t("users"), icon: users },
-    { href: "/staff", label: t("staff"), icon: staff },
-    { href: "/refund", label: t("refund"), icon: refund },
+    { href: "/users",          label: t("users"),           icon: users           },
+    {
+      href: "/staff",
+      label: t("staff"),
+      icon: staff,
+      children: [
+        { href: "/staff/rolesandpermissions", label: t("Roles&Permissions") },
+        { href: "/staff/auditlogs",          label: t("AuditLogs")         },
+      ],
+    },
+    { href: "/refund",   label: t("refund"),   icon: refund   },
     { href: "/settings", label: t("settings"), icon: settings },
   ];
 
@@ -97,10 +113,9 @@ export default function Sidebar() {
 
         <nav className="space-y-2">
           {links.map((link) => {
-            const isActive =
-              pathname === link.href || pathname.startsWith(`${link.href}/`);
-
-            const hasChildren = "children" in link;
+            const isActive     = pathname === link.href || pathname.startsWith(`${link.href}/`);
+            const hasChildren  = "children" in link;
+            const isOpen       = !!openItems[link.href];
 
             if (hasChildren) {
               return (
@@ -121,13 +136,13 @@ export default function Sidebar() {
 
                     <button
                       type="button"
-                      onClick={() => setMenuOpen((prev) => !prev)}
+                      onClick={() => toggleItem(link.href)}
                       className="pe-4 ps-3 py-3 cursor-pointer"
                       aria-label="Toggle submenu"
                     >
                       <span
                         className={`block transition-transform duration-300 ${
-                          menuOpen ? "rotate-180" : ""
+                          isOpen ? "rotate-180" : ""
                         }`}
                       >
                         <Image src={arrDown} alt="Open submenu" />
@@ -135,11 +150,10 @@ export default function Sidebar() {
                     </button>
                   </div>
 
-                  {menuOpen && (
+                  {isOpen && (
                     <div className="mt-2 ms-4 space-y-2">
-                      {link?.children?.map((child) => {
+                      {link.children?.map((child) => {
                         const isChildActive = pathname === child.href;
-
                         return (
                           <Link
                             key={child.href}

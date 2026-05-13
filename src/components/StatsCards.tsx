@@ -26,14 +26,14 @@ export default function StatsCards({ stats }: StatsCardsProps) {
   const items = stats ?? defaultStats;
 
   return (
-    <div className="mt-8 flex max-w-[97%] gap-6 w-full flex-wrap justify-between">
+    <div className="mt-8 flex max-w-[95%] gap-[25px] w-full flex-wrap ">
       {items.map((item) => {
         const isUp = item.type === "up";
 
         return (
           <div
             key={item.title}
-            className="rounded-[12px] min-w-[252px] border border-[#DEDEDE] bg-white px-6 py-6 min-h-[148px]"
+            className="rounded-[12px] flex-1 border border-[#DEDEDE] bg-white px-6 py-6 min-h-[148px]"
           >
             <div className="flex items-center gap-2">
               <div className="flex h-[26px] w-[26px] items-center justify-center rounded-[5px] bg-[#FF8A00]">
@@ -47,7 +47,7 @@ export default function StatsCards({ stats }: StatsCardsProps) {
             <h2 className="mt-6 text-[28px] font-semibold text-mainBlack">
               {item.value}
             </h2>
-
+            {item.change && (
             <div className="mt-2 flex items-center gap-2 text-[11px]">
               <span
                 className="flex items-center gap-1/2 text-[12px] font-medium"
@@ -64,6 +64,8 @@ export default function StatsCards({ stats }: StatsCardsProps) {
                 {t("changeDate")}
               </span>
             </div>
+            )}
+
           </div>
         );
       })}

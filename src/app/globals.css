@@ -6,6 +6,7 @@
 
 :root {
   --background-primary: #DC1213;
+  --color-redprimary: #DC1213;
   --color-primary: #0f172a;
   --color-secondary: #E08400;
   --color-mainBlack: #1A1A1A;
@@ -47,9 +48,11 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primarybg: var(--background-primary);
   --color-primary: var(--color-primary);
+  --color-redprimary: var(--color-redprimary);
   --color-secondary: var(--color-secondary);
   --color-mainBlack: var(--color-mainBlack);
   --font-sans: var(--font-sans);

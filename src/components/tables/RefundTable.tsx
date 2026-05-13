@@ -147,10 +147,10 @@ export default function OrdersTable() {
           <TableCell className="px-5 py-4 text-[14px] text-start text-[#2E2E2EB3] font-medium leading-[20px] tracking-[0.5px]">{refund.date}</TableCell>
           <TableCell className="px-5 py-4 text-center">
             <div className="flex items-center justify-center gap-0">
-                <Link href={`/refund/${refund.id}`} className="p-1.5 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
+                <Link href={`/refund/${refund.id}`} className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
                     <Image src={editpen} alt="Edit" width={32} height={32} />
                     </Link>
-              <button className="p-1.5 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
+              <button className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
                 <Image src={viewEye} alt="View" width={32} height={32} />
               </button>
             </div>

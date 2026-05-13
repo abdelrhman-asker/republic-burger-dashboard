@@ -263,13 +263,13 @@ const formatDate = (date: Date | undefined) => {
 </TableCell>
                   <TableCell className="px-5 py-4">
                     <div className="flex items-center gap-0">
-                      <button className="p-1.5 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
+                      <button className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
                         <Image src={editpen} alt="Edit" width={32} height={32} />
                       </button>
-                      <button className="p-1.5 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
+                      <button className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
                         <Image src={viewEye} alt="View" width={32} height={32} />
                       </button>
-                      <button className="p-1.5 rounded-lg text-gray-400 hover:text-[#E53935] hover:bg-red-50 transition-colors">
+                      <button className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#E53935] hover:bg-red-50 transition-colors">
                         <Image src={redirectArrow} alt="Delete" width={32} height={32} />
                       </button>
                     </div>

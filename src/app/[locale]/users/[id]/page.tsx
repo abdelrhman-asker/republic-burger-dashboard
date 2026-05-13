@@ -284,7 +284,7 @@ export default function UserDetailsPage({
 
           {/* Page Header */}
           <div className="flex items-start justify-between mb-8">
-            <h1 className="text-[28px] font-extrabold">{t("mainTitle")}</h1>
+            <h1 className="font-headFont text-[28px] font-extrabold">{t("mainTitleDetails")}</h1>
             <div className="flex items-center gap-5">
               <button className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center">
                 <Bell size={16} />

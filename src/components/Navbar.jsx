@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import LanguageSwitcher from "./Languageswitcher";
 import Image from "next/image";
+import Logo from "@/.././public/images/MainLogoRed.svg";
 import { use, useState } from "react";
 import Link from "next/link";
 
@@ -46,7 +47,7 @@ export default function Navbar() {
           >
             <div className="h-10 w-10 rounded-full overflow-hidden bg-gray-200 border border-gray-200">
               <Image
-                src="/avatar.png"
+                src={Logo}
                 alt="User Avatar"
                 width={40}
                 height={40}

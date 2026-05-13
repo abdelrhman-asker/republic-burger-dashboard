@@ -123,7 +123,34 @@
     "View Full Profile": "عرض الملف الشخصي الكامل",
     "Admin Decision": "قرار المشرف",
     "InternalNotes": "ملاحظات داخلية"
-
-
-  }
+  },
+  "LoyaltyProgram": {
+  "pageTitle": "برنامج الولاء",
+  "manageRewards": "إدارة المكافآت",
+  "manageRewardsSubtitle": "قم بإعداد إعدادات برنامج الولاء ومكافآت المستويات",
+  "programStatus": "حالة البرنامج",
+  "primaryCurrency": "العملة الأساسية",
+  "cashback": "استرداد نقدي",
+  "cashbackSubtitle": "معدل المكافأة الأساسي لجميع الطلبات",
+  "pointExpiration": "انتهاء صلاحية النقاط",
+  "pointExpirationSubtitle": "متى تصبح النقاط غير صالحة",
+  "days": "أيام",
+  "loyaltyTiers": "مستويات الولاء",
+  "addNewTier": "إضافة مستوى جديد",
+  "baseTier": "المستوى الأساسي",
+  "spendThreshold": "حد الإنفاق",
+  "cashbackRate": "معدل الاسترداد النقدي",
+  "editTier": "تعديل المستوى",
+  "bronze": "برونزي",
+  "silver": "فضي",
+  "gold": "ذهبي",
+  "editLoyaltyTier": "تعديل مستوى الولاء",
+  "editModalSubtitle": "قم بتعديل المتطلبات والمكافآت الخاصة بمستوى {tier}.",
+  "tierNameLabel": "اسم المستوى",
+  "spendThresholdLabel": "حد الإنفاق ($)",
+  "mustBeHigher": "يجب أن يكون أعلى من المستوى الفضي (250)",
+  "cashbackPercentage": "نسبة الاسترداد النقدي",
+  "cancel": "إلغاء",
+  "save": "حفظ"
+}
 }
