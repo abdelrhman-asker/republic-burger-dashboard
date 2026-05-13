@@ -10,33 +10,62 @@ import silver from "@/.././public/images/silver.svg";
 import bronze from "@/.././public/images/bronze.svg";
 import gold from "@/.././public/images/gold.svg";
 import editblack from "@/.././public/images/editblack.svg";
+type TierName = "Bronze" | "Silver" | "Gold";
 
-const TIER_COLORS = {
+type Tier = {
+  id: number;
+  name: TierName;
+  thresholdMin: number;
+  thresholdMax: number;
+  cashback: number;
+  currency: string;
+};
+
+type ToggleProps = {
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+};
+
+type EditTierModalProps = {
+  tier: Tier;
+  onClose: () => void;
+  onSave: (tier: Tier) => void;
+};
+
+type TierCardProps = {
+  tier: Tier;
+  onEdit: (tier: Tier) => void;
+};
+const TIER_COLORS: Record<TierName, {
+  label: string;
+  bar: string;
+  iconBg: string;
+}> = {
   Bronze: {
-    label:   "text-[#CD7F32]",
-    bar:     "bg-[#CD7F32]",
-    iconBg:  "bg-[#CD7F321A]",
+    label: "text-[#CD7F32]",
+    bar: "bg-[#CD7F32]",
+    iconBg: "bg-[#CD7F321A]",
   },
   Silver: {
-    label:   "text-[#64748B]",
-    bar:     "bg-[#64748B]",
-    iconBg:  "bg-[#E2E8F0]",
+    label: "text-[#64748B]",
+    bar: "bg-[#64748B]",
+    iconBg: "bg-[#E2E8F0]",
   },
   Gold: {
-    label:   "text-[#FFB800]",
-    bar:     "bg-[#FFB800]",
-    iconBg:  "bg-[#FFB8001A]",
+    label: "text-[#FFB800]",
+    bar: "bg-[#FFB800]",
+    iconBg: "bg-[#FFB8001A]",
   },
 };
 
-const INITIAL_TIERS = [
+const INITIAL_TIERS: Tier[] = [
   { id: 1, name: "Bronze", thresholdMin: 0, thresholdMax: 500, cashback: 2, currency: "L.E" },
   { id: 2, name: "Silver", thresholdMin: 0, thresholdMax: 500, cashback: 2, currency: "L.E" },
-  { id: 3, name: "Gold",   thresholdMin: 0, thresholdMax: 500, cashback: 2, currency: "L.E" },
+  { id: 3, name: "Gold", thresholdMin: 0, thresholdMax: 500, cashback: 2, currency: "L.E" },
 ];
 
 /* ── Toggle ──────────────────────────────────────────────────── */
-function Toggle({ checked, onChange }) {
+function Toggle({ checked, onChange }: ToggleProps) {
   return (
     <button
       type="button"
@@ -57,21 +86,27 @@ function Toggle({ checked, onChange }) {
 }
 
 /* ── Edit Tier Modal ─────────────────────────────────────────── */
-function EditTierModal({ tier, onClose, onSave }) {
+function EditTierModal({ tier, onClose, onSave }: EditTierModalProps) {
   const t = useTranslations("LoyaltyProgram");
 
-  const [tierName,  setTierName]  = useState(`${tier.name} Tier`);
-  const [threshold, setThreshold] = useState(1000);
-  const [cashback,  setCashback]  = useState(tier.cashback);
+  const [tierName, setTierName] = useState(`${tier.name} Tier`);
+  const [threshold, setThreshold] = useState<number>(tier.thresholdMax);
+  const [cashback, setCashback] = useState<number>(tier.cashback);
 
   const hasError = threshold <= 250;
 
   function handleSave() {
-    onSave({ ...tier, cashback, thresholdMax: threshold });
+    onSave({
+      ...tier,
+      cashback,
+      thresholdMax: threshold,
+    });
+
     onClose();
   }
 
-  function handleBackdropClick(e) {
+
+  function handleBackdropClick(e: React.MouseEvent<HTMLDivElement>) {
     if (e.target === e.currentTarget) onClose();
   }
 
@@ -83,9 +118,9 @@ function EditTierModal({ tier, onClose, onSave }) {
       <div className="relative bg-white rounded-2xl p-6 pb-7 w-[90%] max-w-[680px] max-h-[608px] shadow-2xl">
 
         {/* Close */}
-        <button
-          type="button"
-          onClick={onClose}
+       <button
+  type="button"
+  onClick={handleSave}
           className="absolute top-4 right-4 bg-transparent border-none cursor-pointer text-gray-400 hover:text-gray-600 text-lg leading-none p-1"
         >
           ✕
@@ -152,15 +187,17 @@ function EditTierModal({ tier, onClose, onSave }) {
 
         {/* Buttons */}
           <div className="flex gap-8 lg:mt-16 lg:mb-8 justify-center min:w-fit m-auto">
-          <button
-            onClick={onClose}
+         <button
+  type="button"
+  onClick={handleSave}
             className="max-w-[179px] min-w-[30%] py-2 rounded-[8px] border border-[#DC1213] text-[#DC1213] font-bold text-[16px] transition hover:bg-red-50"
           >
             {t("cancel")}
           </button>
           
-            <button
-            onClick={onClose}
+           <button
+  type="button"
+  onClick={handleSave}
             className="max-w-[179px] min-w-[30%] py-2 rounded-[8px] bg-[#DC1213] text-white font-bold text-[16px] transition hover:bg-red-700"
           >
             {t("save")}
@@ -172,15 +209,18 @@ function EditTierModal({ tier, onClose, onSave }) {
 }
 
 /* ── Tier Card ───────────────────────────────────────────────── */
-function TierCard({ tier, onEdit }) {
-  const t      = useTranslations("LoyaltyProgram");
+function TierCard({ tier, onEdit }: TierCardProps) {
+  const t = useTranslations("LoyaltyProgram");
   const colors = TIER_COLORS[tier.name];
-  const emoji  = tier.name === "Bronze" ? 
-  <Image src={bronze} alt="Bronze" width={20} height={20} />
-  : tier.name === "Silver" ? 
-  <Image src={silver} alt="Silver" width={20} height={20} />
-  : 
-  <Image src={gold} alt="Gold" width={20} height={20} />;
+
+  const emoji =
+    tier.name === "Bronze" ? (
+      <Image src={bronze} alt="Bronze" width={20} height={20} />
+    ) : tier.name === "Silver" ? (
+      <Image src={silver} alt="Silver" width={20} height={20} />
+    ) : (
+      <Image src={gold} alt="Gold" width={20} height={20} />
+    );
 
   return (
     <div className="flex-1 min-w-[190px] bg-white border border-[#DCE0E5] rounded-2xl p-6">
@@ -242,9 +282,9 @@ export default function LoyaltyProgramPage() {
   const [cashback,    setCashback]    = useState(1.5);
   const [expiry,      setExpiry]      = useState(365);
   const [tiers,       setTiers]       = useState(INITIAL_TIERS);
-  const [editingTier, setEditingTier] = useState(null);
+const [editingTier, setEditingTier] = useState<Tier | null>(null);
 
-  function handleSaveTier(updated) {
+  function handleSaveTier(updated : Tier) {
     setTiers((prev) => prev.map((tier) => (tier.id === updated.id ? updated : tier)));
   }
 
