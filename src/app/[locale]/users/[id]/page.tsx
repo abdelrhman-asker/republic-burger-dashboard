@@ -4,7 +4,7 @@ import PhoneGray from "@/.././public/images/phoneGray.svg";
 import locationGray from "@/.././public/images/locationGray.svg";
 import searchIcon from "@/.././public/images/searchIcon.svg";
 import EyeDet from "@/.././public/images/EyeDet.svg";
-import { Bell, MoreVertical, Eye, X } from "lucide-react";
+import { Bell, MoreVertical, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { use, useState } from "react";
 import { Badge } from "@/components/ui/badge";
@@ -131,10 +131,10 @@ function AddWalletCreditModal({
   const [notes, setNotes]     = useState("");
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div className="bg-white rounded-[12px] w-[90%] lg:w-full lg:max-w-[708px] max-h-[689px] mx-4 p-6 shadow-xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/40 px-4 py-6">
+      <div className="flex max-h-[calc(100vh-48px)] w-full max-w-[708px] flex-col overflow-hidden rounded-[12px] bg-white shadow-xl">
         {/* Header */}
-        <div className="flex items-center justify-between mb-16">
+        <div className="flex items-center justify-between border-b border-[#EFEFEF] px-6 py-5">
           <h2 className="text-[20px] font-semibold text-[#0F172A]">
             {t("addWalletCredit")}
           </h2>
@@ -146,8 +146,9 @@ function AddWalletCreditModal({
           </button>
         </div>
 
+        <div className="overflow-y-auto p-6">
         {/* Amount */}
-        <div className="mb-9 mx-6">
+        <div className="mb-9 mx-0 sm:mx-6">
           <label className="block text-[14px] font-semibold text-[#0F172A] mb-2">
             {t("amount")}
           </label>
@@ -161,7 +162,7 @@ function AddWalletCreditModal({
         </div>
 
         {/* Reason */}
-        <div className="mb-9 mx-6">
+        <div className="mb-9 mx-0 sm:mx-6">
           <label className="block text-[14px] font-semibold text-[#0F172A] mb-2">
             {t("reason")}
           </label>
@@ -177,7 +178,7 @@ function AddWalletCreditModal({
         </div>
 
         {/* Notes */}
-        <div className="mb-9 mx-6">
+        <div className="mb-9 mx-0 sm:mx-6">
           <label className="block text-[14px] font-semibold text-[#0F172A] mb-2">
             {t("notesOptional")}
           </label>
@@ -191,7 +192,7 @@ function AddWalletCreditModal({
         </div>
 
         {/* Actions */}
-        <div className="flex gap-8 lg:mt-16 lg:mb-8 justify-center min:w-fit m-auto">
+        <div className="flex flex-wrap gap-4 lg:gap-8 lg:mt-16 lg:mb-8 justify-center min:w-fit m-auto">
             <button
             onClick={onClose}
             className="max-w-[179px] min-w-[30%] py-2 rounded-[8px] bg-[#DC1213] text-white font-bold text-[16px] transition hover:bg-red-700"
@@ -205,6 +206,7 @@ function AddWalletCreditModal({
             {t("cancel")}
           </button>
           
+        </div>
         </div>
       </div>
     </div>
@@ -251,14 +253,6 @@ export default function UserDetailsPage({
       tx.reason.toLowerCase().includes(search.toLowerCase())
   );
 
-  const activeData =
-    activeTab === "Orders History"
-      ? filteredOrders
-      : activeTab === "Refunds"
-      ? filteredRefunds
-      : filteredWallet;
-
-  const totalPages    = Math.ceil(activeData.length / ITEMS_PER_PAGE);
   const startIndex    = (currentPage - 1) * ITEMS_PER_PAGE;
 
   const currentOrders  = filteredOrders.slice(startIndex, startIndex + ITEMS_PER_PAGE);

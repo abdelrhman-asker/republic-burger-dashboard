@@ -92,11 +92,11 @@ function ExtraModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/35 px-4"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/35 px-4 py-6"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-[650px] rounded-[8px] bg-white shadow-xl"
+        className="flex max-h-[calc(100vh-48px)] w-full max-w-[650px] flex-col overflow-hidden rounded-[8px] bg-white shadow-xl"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-[#EFEFEF] px-8 py-5">
@@ -113,7 +113,7 @@ function ExtraModal({
           </button>
         </div>
 
-        <div className="space-y-6 px-8 py-7">
+        <div className="space-y-6 overflow-y-auto px-8 py-7">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <div>
               <label className={labelClass}>Extra Name</label>
@@ -156,7 +156,7 @@ function ExtraModal({
             <ImageUploadBox file={imageFile} onFileChange={setImageFile} />
           </div>
 
-          <div className="flex justify-center gap-8 pt-8">
+          <div className="flex flex-wrap justify-center gap-4 pt-8 sm:gap-8">
             <button className="min-w-[150px] rounded-[8px] bg-[#DC1213] px-8 py-2.5 text-[14px] font-bold text-white">
               {isEdit ? "Save" : "Create"}
             </button>

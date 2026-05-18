@@ -113,9 +113,9 @@ function EditTierModal({ tier, onClose, onSave }: EditTierModalProps) {
   return (
     <div
       onClick={handleBackdropClick}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/35"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/35 px-4 py-6"
     >
-      <div className="relative bg-white rounded-2xl p-6 pb-7 w-[90%] max-w-[680px] max-h-[608px] shadow-2xl">
+      <div className="relative flex max-h-[calc(100vh-48px)] w-full max-w-[680px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
 
         {/* Close */}
        <button
@@ -126,6 +126,7 @@ function EditTierModal({ tier, onClose, onSave }: EditTierModalProps) {
           ✕
         </button>
 
+        <div className="overflow-y-auto p-6 pb-7">
         {/* Header */}
         <div>
 
@@ -138,7 +139,7 @@ function EditTierModal({ tier, onClose, onSave }: EditTierModalProps) {
         </div>
 
         {/* Tier Name */}
-        <label className="block text-[14px] font-regular text-[#334155] mb-1.5 mt-18">
+        <label className="block text-[14px] font-regular text-[#334155] mb-1.5 mt-8 lg:mt-18">
           {t("tierNameLabel")}
         </label>
         <input
@@ -186,7 +187,7 @@ function EditTierModal({ tier, onClose, onSave }: EditTierModalProps) {
         </div>
 
         {/* Buttons */}
-          <div className="flex gap-8 lg:mt-16 lg:mb-8 justify-center min:w-fit m-auto">
+          <div className="flex flex-wrap gap-4 lg:gap-8 lg:mt-16 lg:mb-8 justify-center min:w-fit m-auto">
          <button
   type="button"
   onClick={handleSave}
@@ -202,6 +203,7 @@ function EditTierModal({ tier, onClose, onSave }: EditTierModalProps) {
           >
             {t("save")}
           </button>
+        </div>
         </div>
       </div>
     </div>

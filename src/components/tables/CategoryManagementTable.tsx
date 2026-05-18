@@ -91,11 +91,11 @@ function CategoryModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/35 px-4"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/35 px-4 py-6"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-[590px] rounded-[8px] bg-white shadow-xl"
+        className="flex max-h-[calc(100vh-48px)] w-full max-w-[590px] flex-col overflow-hidden rounded-[8px] bg-white shadow-xl"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-[#EFEFEF] px-8 py-5">
@@ -112,7 +112,7 @@ function CategoryModal({
           </button>
         </div>
 
-        <div className="space-y-6 px-8 py-7">
+        <div className="space-y-6 overflow-y-auto px-8 py-7">
           <div>
             <label className={labelClass}>Category Name</label>
             <input className={inputClass} defaultValue="Burgers" />
@@ -161,7 +161,7 @@ function CategoryModal({
             </div>
           </div>
 
-          <div className="flex justify-center gap-8 pt-4">
+          <div className="flex flex-wrap justify-center gap-4 pt-4 sm:gap-8">
             <button className="min-w-[150px] rounded-[8px] bg-[#DC1213] px-8 py-2.5 text-[14px] font-bold text-white">
               {isEdit ? "Save" : "Create"}
             </button>

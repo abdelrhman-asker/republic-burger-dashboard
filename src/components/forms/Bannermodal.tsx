@@ -46,7 +46,7 @@ export default function BannerModal({ mode, initialData, onClose, onSave }: Bann
     };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto px-4 py-6">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/30 backdrop-blur-[2px]"
@@ -54,10 +54,10 @@ export default function BannerModal({ mode, initialData, onClose, onSave }: Bann
       />
 
       {/* Modal Card */}
-      <div className="relative z-10 w-full max-w-[480px] mx-4 bg-white rounded-[16px] shadow-xl p-8">
+      <div className="relative z-10 flex max-h-[calc(100vh-48px)] w-full max-w-[480px] flex-col overflow-hidden bg-white rounded-[16px] shadow-xl">
 
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between border-b border-[#EFEFEF] px-8 py-5">
           <h2 className="text-[18px] font-bold text-[#2E2E2E]">
             {isEdit ? t("editModalTitle") : t("addModalTitle")}
           </h2>
@@ -71,7 +71,7 @@ export default function BannerModal({ mode, initialData, onClose, onSave }: Bann
         </div>
 
         {/* Fields */}
-        <div className="space-y-5">
+        <div className="space-y-5 overflow-y-auto px-8 py-6">
 
           {/* Banner Title */}
           <div>
@@ -142,7 +142,7 @@ export default function BannerModal({ mode, initialData, onClose, onSave }: Bann
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-3 pt-1">
+          <div className="flex flex-wrap gap-3 pt-1 sm:flex-nowrap">
             <button
               onClick={() => onSave(form)}
               className="flex-1 py-[10px] rounded-[10px] bg-[#DC1213] text-white text-[15px] font-bold hover:bg-[#b80f10] transition-colors"
