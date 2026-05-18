@@ -2,11 +2,10 @@
 
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import upload from "@/.././public/images/upload.svg";
-import Image from "next/image";
+import ImageUploadBox from "@/components/forms/ImageUploadBox";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface ExtraItem {
@@ -61,8 +60,6 @@ export default function CreateMenuItemForm() {
   );
 
   const [branchSearch, setBranchSearch] = useState<string>("");
-  const [dragging,     setDragging]     = useState<boolean>(false);
-  const fileRef = useRef<HTMLInputElement>(null);
 
   // ── helpers ──────────────────────────────────────────────────────────────────
   const set =
@@ -84,24 +81,9 @@ export default function CreateMenuItemForm() {
       prev.map((b) => (b.id === id ? { ...b, checked: !b.checked } : b))
     );
 
-  const selectAll = () =>
-    setBranches((prev) => prev.map((b) => ({ ...b, checked: true })));
-
   const filteredBranches = branches.filter((b) =>
     b.label.toLowerCase().includes(branchSearch.toLowerCase())
   );
-
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setDragging(false);
-    const file = e.dataTransfer.files?.[0];
-    if (file) setForm((prev) => ({ ...prev, imageFile: file }));
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) setForm((prev) => ({ ...prev, imageFile: file }));
-  };
 
   const handleSubmit = () => {
     console.log("Submit:", { form, extras, branches });
@@ -185,36 +167,13 @@ export default function CreateMenuItemForm() {
             {/* Image Upload */}
             <div>
               <label className={labelClass}>{t("fields.itemImage")}</label>
-              <div
-                onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
-                onDragLeave={() => setDragging(false)}
-                onDrop={handleDrop}
-                onClick={() => fileRef.current?.click()}
-                className={`flex flex-col items-center justify-center gap-1 h-[146px] w-[443px] rounded-[8px] border-2 border-dashed cursor-pointer transition-colors ${
-                  dragging
-                    ? "border-[#FF8A00] bg-[#FFF7ED]"
-                    : "border-[#E0E0E0] bg-[#FAFAFA] hover:border-[#FF8A00] hover:bg-[#FFF7ED]"
-                }`}
-              >
-                {form.imageFile ? (
-                  <span className="text-[13px] text-[#25BB00] font-medium">
-                    {form.imageFile.name}
-                  </span>
-                ) : (
-                  <>
-                    <Image  src={upload} alt="Upload" width={24} height={24}/>
-                    <span className="text-[12px] text-[#0F172A]">{t("fields.imageUploadLabel")}</span>
-                    <span className="text-[11px] text-[#94A3B8]">{t("fields.imageUploadHint")}</span>
-                  </>
-                )}
-                <input
-                  ref={fileRef}
-                  type="file"
-                  accept=".svg,.png,.jpg,.jpeg"
-                  className="hidden"
-                  onChange={handleFileChange}
-                />
-              </div>
+              <ImageUploadBox
+                file={form.imageFile}
+                onFileChange={(file) => setForm((prev) => ({ ...prev, imageFile: file }))}
+                label={t("fields.imageUploadLabel")}
+                hint={t("fields.imageUploadHint")}
+                className="h-[146px] w-[443px] max-w-full"
+              />
             </div>
           </div>
         </section>

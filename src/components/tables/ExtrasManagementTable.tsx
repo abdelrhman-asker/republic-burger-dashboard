@@ -14,7 +14,7 @@ import {
 import searchIcon from "@/../public/images/searchIcon.svg";
 import editpen from "@/../public/images/editpen.svg";
 import trashIco from "@/../public/images/trashIco.svg";
-import upload from "@/../public/images/upload.svg";
+import ImageUploadBox from "@/components/forms/ImageUploadBox";
 
 type ExtraTab = "All Extras" | "Active" | "Disabled";
 type ModalMode = "add" | "edit" | null;
@@ -88,10 +88,17 @@ function ExtraModal({
 }) {
   const isEdit = mode === "edit";
   const [active, setActive] = useState(true);
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/35 px-4">
-      <div className="w-full max-w-[650px] rounded-[8px] bg-white shadow-xl">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/35 px-4"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-[650px] rounded-[8px] bg-white shadow-xl"
+        onClick={(event) => event.stopPropagation()}
+      >
         <div className="flex items-center justify-between border-b border-[#EFEFEF] px-8 py-5">
           <h2 className="text-[18px] font-bold text-[#111827]">
             {isEdit ? "Edit Extra" : "Add New Extra"}
@@ -146,15 +153,7 @@ function ExtraModal({
 
           <div>
             <label className={labelClass}>Extra Image</label>
-            <div className="flex h-[142px] cursor-pointer flex-col items-center justify-center rounded-[8px] border border-dashed border-[#CBD5E1] bg-[#F8FAFC]">
-              <Image src={upload} alt="Upload" width={22} height={22} />
-              <span className="mt-3 text-[12px] font-medium text-[#334155]">
-                Click to upload or drag and drop
-              </span>
-              <span className="text-[11px] text-[#94A3B8]">
-                SVG, PNG, JPG (max. 5MB)
-              </span>
-            </div>
+            <ImageUploadBox file={imageFile} onFileChange={setImageFile} />
           </div>
 
           <div className="flex justify-center gap-8 pt-8">
@@ -239,7 +238,7 @@ export default function ExtrasManagementTable() {
 
         <button
           onClick={() => setModalMode("add")}
-          className="rounded-[8px] bg-[#DC1213] px-10 py-2.5 text-[14px] font-bold text-white"
+          className="rounded-[8px] bg-[#DC1213] px-14 py-2.5 text-[14px] font-bold text-white"
         >
           Add New Extra
         </button>

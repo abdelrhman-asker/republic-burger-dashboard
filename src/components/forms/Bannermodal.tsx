@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import ImageUploadBox from "@/components/forms/ImageUploadBox";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -36,26 +37,13 @@ export default function BannerModal({ mode, initialData, onClose, onSave }: Bann
   const t      = useTranslations("PromotionalBanners");
   const isEdit = mode === "edit";
 
-  const [form, setForm]       = useState<BannerFormData>({ ...emptyForm, ...initialData });
-  const [dragging, setDragging] = useState(false);
+  const [form, setForm] = useState<BannerFormData>({ ...emptyForm, ...initialData });
 
   const handleChange =
     (key: keyof BannerFormData) =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setForm((prev) => ({ ...prev, [key]: e.target.value }));
     };
-
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setDragging(false);
-    const file = e.dataTransfer.files?.[0];
-    if (file) setForm((prev) => ({ ...prev, mediaFile: file }));
-  };
-
-  const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) setForm((prev) => ({ ...prev, mediaFile: file }));
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -104,35 +92,13 @@ export default function BannerModal({ mode, initialData, onClose, onSave }: Bann
             <label className="block text-[14px] font-semibold text-[#2E2E2E] mb-2">
               {t("media")}
             </label>
-            <div
-              onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
-              onDragLeave={() => setDragging(false)}
-              onDrop={handleDrop}
-              className={`relative flex flex-col items-center justify-center h-[120px] rounded-[10px] border-2 border-dashed transition-colors cursor-pointer
-                ${dragging ? "border-[#F5A623] bg-orange-50" : "border-[#E0E0E0] bg-[#FAFAFA]"}`}
-            >
-              <input
-                type="file"
-                accept=".svg,.png,.jpg,.jpeg"
-                onChange={handleFileInput}
-                className="absolute inset-0 opacity-0 cursor-pointer"
-              />
-              {form.mediaFile ? (
-                <p className="text-[13px] text-[#20A300] font-medium px-4 text-center truncate max-w-full">
-                  {form.mediaFile.name}
-                </p>
-              ) : (
-                <>
-                  <svg className="mb-2 text-[#BDBDBD]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="17 8 12 3 7 8" />
-                    <line x1="12" y1="3" x2="12" y2="15" />
-                  </svg>
-                  <p className="text-[13px] text-[#9E9E9E]">{t("mediaUploadLabel")}</p>
-                  <p className="text-[11px] text-[#BDBDBD] mt-1">{t("mediaFormats")}</p>
-                </>
-              )}
-            </div>
+            <ImageUploadBox
+              file={form.mediaFile}
+              onFileChange={(file) => setForm((prev) => ({ ...prev, mediaFile: file }))}
+              label={t("mediaUploadLabel")}
+              hint={t("mediaFormats")}
+              className="h-[120px] rounded-[10px]"
+            />
           </div>
 
           {/* Redirect Link */}

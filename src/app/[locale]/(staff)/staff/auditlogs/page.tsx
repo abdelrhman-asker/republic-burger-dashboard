@@ -241,7 +241,7 @@ export default function AuditLogsPage() {
                 setCurrentPage(1);
               }}
               placeholder={t("searchLogsPlaceholder")}
-              className="h-[28px] w-[275px] rounded-[4px] border border-[#E2E8F0] bg-white pl-8 pr-3 text-[11px] font-medium text-[#0F172A] placeholder:text-[#64748B] focus:border-[#DC1213] focus:outline-none"
+              className="h-[28px] max:w-[275px] lg:w-[275px] rounded-[4px] border border-[#E2E8F0] bg-white pl-8 pr-3 text-[11px] font-medium text-[#0F172A] placeholder:text-[#64748B] focus:border-[#DC1213] focus:outline-none"
             />
           </div>
 
