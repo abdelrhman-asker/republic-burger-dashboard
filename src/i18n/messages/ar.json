@@ -152,5 +152,76 @@
   "cashbackPercentage": "نسبة الاسترداد النقدي",
   "cancel": "إلغاء",
   "save": "حفظ"
-}
+},
+"Menu": {
+    "mainTitle": "إدارة القائمة",
+    "filters": {
+      "searchPlaceholder": "ابحث عن عنصر",
+      "allBranches": "جميع الفروع",
+      "downtown": "وسط البلد",
+      "uptown": "أبتاون",
+      "statusAll": "الحالة: الكل",
+      "statusActive": "نشط",
+      "statusInactive": "غير نشط",
+      "statusOutStock": "نفذ المخزون"
+    },
+    "addNewItem": "+ إضافة عنصر جديد",
+    "tabs": {
+      "all": "الكل",
+      "burger": "برجر",
+      "side": "إضافات",
+      "drink": "مشروبات"
+    },
+    "table": {
+      "image": "الصورة",
+      "itemName": "اسم العنصر",
+      "category": "الفئة",
+      "availability": "التوفر",
+      "price": "السعر",
+      "status": "الحالة",
+      "actions": "الإجراءات"
+    },
+    "status": {
+      "active": "نشط",
+      "inactive": "غير نشط",
+      "outStock": "نفذ المخزون"
+    },
+    "pagination": {
+      "previous": "»",
+      "next": "«"
+    }
+  },
+  "CreateMenuItem": {
+    "mainTitle": "إنشاء عنصر قائمة جديد",
+    "sections": {
+      "itemInformation": "معلومات العنصر",
+      "extra": "إضافات",
+      "branchAvailability": "توفر الفروع"
+    },
+    "fields": {
+      "itemName": "اسم العنصر",
+      "itemNamePlaceholder": "أدخل اسم العنصر",
+      "category": "الفئة",
+      "itemDescription": "وصف العنصر",
+      "itemDescriptionPlaceholder": "أدخل وصفًا للعنصر",
+      "price": "السعر",
+      "itemImage": "صورة العنصر",
+      "imageUploadLabel": "انقر للرفع أو اسحب وأفلت",
+      "imageUploadHint": "SVG، PNG، JPG (الحد الأقصى 5 ميجابايت)"
+    },
+    "categories": {
+      "burgers": "برجر",
+      "side": "إضافات",
+      "drink": "مشروبات"
+    },
+    "extra": {
+      "addExtra": "+ إضافة",
+      "namePlaceholder": "اسم الإضافة",
+      "remove": "حذف الإضافة"
+    },
+    "actions": {
+      "save": "حفظ",
+      "cancel": "إلغاء"
+    }
+  }
 }

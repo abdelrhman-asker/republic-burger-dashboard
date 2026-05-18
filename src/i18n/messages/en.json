@@ -357,5 +357,85 @@
 
 
   
+  },
+  "Menu": {
+    "mainTitle":"Menu Management",
+  "addNewItem": "Add New Item",
+
+  "tabs": {
+    "all": "All",
+    "burger": "Burger",
+    "side": "Side",
+    "drink": "Drink"
+  },
+
+  "filters": {
+    "searchPlaceholder": "Search Items",
+    "allBranches": "All Branches",
+    "downtown": "Downtown",
+    "uptown": "Uptown",
+    "statusAll": "Status: All",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "statusOutStock": "Out Stock"
+  },
+
+  "table": {
+    "image": "Image",
+    "itemName": "Item Name",
+    "category": "Category",
+    "availability": "Availability",
+    "price": "Price",
+    "status": "Status",
+    "actions": "Actions"
+  },
+
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "outStock": "Out Stock"
+  },
+
+  "pagination": {
+    "previous": "<",
+    "next": ">"
+  }
+},
+ "CreateMenuItem": {
+    "mainTitle": "Create New Menu Item",
+    "sections": {
+      "itemInformation": "Item Information",
+      "extra": "Extra",
+      "branchAvailability": "Branch Availability"
+    },
+    "fields": {
+      "itemName": "Item Name",
+      "itemNamePlaceholder": "Enter item name",
+      "category": "Category",
+      "itemDescription": "Item Description",
+      "itemDescriptionPlaceholder": "Enter Description about item",
+      "price": "Price",
+      "itemImage": "Item Image",
+      "imageUploadLabel": "Click to upload or drag and drop",
+      "imageUploadHint": "SVG, PNG, JPG (max. 5MB)"
+    },
+    "categories": {
+      "burgers": "Burgers",
+      "side": "Side",
+      "drink": "Drink"
+    },
+    "extra": {
+      "addExtra": "+ Add Extra",
+      "namePlaceholder": "Extra name",
+      "remove": "Remove extra"
+    },
+    "branches": {
+      "selectAll": "Select All",
+      "searchPlaceholder": "Search branches"
+    },
+    "actions": {
+      "save": "Save",
+      "cancel": "cancel"
+    }
   }
 }
