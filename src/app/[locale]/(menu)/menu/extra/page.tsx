@@ -1,6 +1,6 @@
 import ExtrasManagementTable from "@/components/tables/ExtrasManagementTable";
 
-export default function ExtraPage() {
+export default function MenuExtraPage() {
   return (
     <main className="flex-1 flex flex-col p-8 px-4">
       <div className="flex items-start justify-between max-w-[80%]">

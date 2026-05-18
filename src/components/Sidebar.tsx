@@ -69,10 +69,10 @@ export default function Sidebar() {
       <button
         type="button"
         onClick={() => setSidebarOpen(true)}
-        className="fixed top-4 left-4 z-50 flex h-10 w-10 items-center justify-center rounded-md bg-primarybg text-white lg:hidden"
+        className="fixed top-2 left-2 z-50 flex h-7 w-10 items-center justify-center rounded-md bg-primarybg text-white lg:hidden"
         aria-label="Open sidebar"
       >
-        <span className="text-2xl leading-none">☰</span>
+        <span className="text-2xl leading-none">=</span>
       </button>
 
       {/* Mobile overlay */}
