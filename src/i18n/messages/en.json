@@ -263,7 +263,8 @@
     "mainTitle": "Staff Directory",
     "activeStaff": "Active Staff",
     "inactiveStaff": "Inactive Staff",
-
+ "paginationPrevious": "<",
+    "paginationNext": ">",
     "searchPlaceholder": "Search staff by name or email...",
     "roleAll": "Role: All",
     "roleManager": "Manager",

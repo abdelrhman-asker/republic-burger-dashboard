@@ -17,6 +17,7 @@ import viewEye   from "@/.././public/images/viewEye.svg";
 import trashIco  from "@/.././public/images/trashIco.svg";
 import { useTranslations } from "next-intl";
 import BannerModal, { BannerFormData } from "@/components/forms/Bannermodal";
+import FilterSelect from "@/components/ui/filter-select";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -134,15 +135,11 @@ export default function PromotionalBannersTable() {
           </div>
 
           {/* Status */}
-          <select
-            value={status}
-            onChange={handleFilterChange(setStatus)}
-            className="px-6 py-2.5 rounded-[8px] border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
-          >
+          <FilterSelect value={status} onChange={handleFilterChange(setStatus)}>
             <option value="">{t("statusAll")}</option>
             <option value="Active">{t("statusActive")}</option>
             <option value="Inactive">{t("statusInactive")}</option>
-          </select>
+          </FilterSelect>
         </div>
 
         {/* Add Banner button */}

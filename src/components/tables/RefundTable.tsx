@@ -19,6 +19,7 @@ import redirectArrow from "@/.././public/images/redirectArrow.svg";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 import { Link } from "@/i18n/navigation";
+import FilterSelect from "@/components/ui/filter-select";
 
 type OrderStatus = "Approved" | "Rejected" | "Pending";
 
@@ -79,28 +80,20 @@ export default function OrdersTable() {
         </div>
 
         {/* Branch */}
-        <select
-          value={branch}
-          onChange={(e) => setBranch(e.target.value)}
-          className="px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
-        >
+        <FilterSelect value={branch} onChange={(e) => setBranch(e.target.value)}>
           <option value="">{t("allBranches")}</option>
           <option>Down Town</option>
           <option>Uptown</option>
-        </select>
+        </FilterSelect>
 
         {/* Payment */}
-       <select
-  value={status}
-  onChange={(e) => setStatus(e.target.value)}
-  className="px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
->
+       <FilterSelect value={status} onChange={(e) => setStatus(e.target.value)}>
   <option value="">{t("statusAll")} All</option>
   <option value="Done">Done</option>
   <option value="Cancelled">Cancelled</option>
   <option value="Process">Process</option>
   <option value="Pending">Pending</option>
-</select>
+</FilterSelect>
 
     
       </div>

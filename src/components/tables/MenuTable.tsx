@@ -13,6 +13,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import FilterSelect from "@/components/ui/filter-select";
 import Image from "next/image";
 import searchIcon from "@/.././public/images/searchIcon.svg";
 import editpen from "@/.././public/images/editpen.svg";
@@ -151,9 +152,6 @@ export default function MenuTable({ onAddNew }: MenuTableProps) {
     Drink:  t("tabs.drink"),
   };
 
-  const selectCls =
-    "px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white " +
-    "focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition";
 
   // ── render ─────────────────────────────────────────────────────────────────
   return (
@@ -176,24 +174,24 @@ export default function MenuTable({ onAddNew }: MenuTableProps) {
         </div>
 
         {/* Branch */}
-        <select value={branch} onChange={handleFilter(setBranch)} className={selectCls}>
-          <option value="">{t("filters.allBranches")}</option>
-          <option value="Downtown">{t("filters.downtown")}</option>
-          <option value="Uptown">{t("filters.uptown")}</option>
-        </select>
+       <FilterSelect value={branch} onChange={handleFilter(setBranch)}>
+    <option value="">{t("filters.allBranches")}</option>
+    <option value="Downtown">{t("filters.downtown")}</option>
+    <option value="Uptown">{t("filters.uptown")}</option>
+  </FilterSelect>
 
         {/* Status — option values stay English (used as filter keys) */}
-        <select value={status} onChange={handleFilter(setStatus)} className={selectCls}>
-          <option value="">{t("filters.statusAll")}</option>
-          <option value="Active">{t("filters.statusActive")}</option>
-          <option value="Inactive">{t("filters.statusInactive")}</option>
-          <option value="Out Stock">{t("filters.statusOutStock")}</option>
-        </select>
+        <FilterSelect value={status} onChange={handleFilter(setStatus)}>
+    <option value="">{t("filters.statusAll")}</option>
+    <option value="Active">{t("filters.statusActive")}</option>
+    <option value="Inactive">{t("filters.statusInactive")}</option>
+    <option value="Out Stock">{t("filters.statusOutStock")}</option>
+  </FilterSelect>
 </div>
         {/* Add New Item */}
         <button
           onClick={onAddNew}
-          className="px-13 w-[212px] py-2 rounded-xl bg-[#DC1213] text-white text-[16px] font-bold  whitespace-nowrap"
+          className="px-13 w-[212px] py-2 rounded-xl bg-[#DC1213] text-white text-[16px] font-bold  whitespace-nowrap cursor-pointer"
         >
           {t("addNewItem")}
         </button>

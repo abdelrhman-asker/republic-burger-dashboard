@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import FilterSelect from "@/components/ui/filter-select";
 import Image from "next/image";
 import searchIcon from "@/.././public/images/searchIcon.svg";
 import editpen from "@/.././public/images/editpen.svg";
@@ -96,38 +97,26 @@ export default function UsersTable() {
         </div>
 
         {/* Branch */}
-        <select
-          value={branch}
-          onChange={handleFilterChange(setBranch)}
-          className="px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
-        >
+        <FilterSelect value={branch} onChange={handleFilterChange(setBranch)}>
           <option value="">All Branches</option>
           <option>Down Town</option>
           <option>Uptown</option>
-        </select>
+        </FilterSelect>
 
         {/* Status */}
-        <select
-          value={status}
-          onChange={handleFilterChange(setStatus)}
-          className="px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
-        >
+        <FilterSelect value={status} onChange={handleFilterChange(setStatus)}>
           <option value="">Status: All</option>
           <option value="Active">Active</option>
           <option value="Suspend">Suspend</option>
-        </select>
+        </FilterSelect>
 
         {/* Loyalty Tier */}
-        <select
-          value={loyaltyTier}
-          onChange={handleFilterChange(setLoyaltyTier)}
-          className="px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
-        >
+        <FilterSelect value={loyaltyTier} onChange={handleFilterChange(setLoyaltyTier)}>
           <option value="">Loyalty Tier : All</option>
           <option value="Gold">Gold</option>
           <option value="Silver">Silver</option>
           <option value="Bronze">Bronze</option>
-        </select>
+        </FilterSelect>
       </div>
 
       {/* Table Card */}

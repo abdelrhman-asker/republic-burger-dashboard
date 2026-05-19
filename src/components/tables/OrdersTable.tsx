@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import FilterSelect from "@/components/ui/filter-select";
 import Image from "next/image";
 import searchIcon from "@/.././public/images/searchIcon.svg";
 import editpen from "@/.././public/images/editpen.svg";
@@ -103,35 +104,27 @@ const formatDate = (date: Date | undefined) => {
         </div>
 
         {/* Branch */}
-        <select
-          value={branch}
-          onChange={(e) => setBranch(e.target.value)}
-          className="px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
-        >
+        <FilterSelect value={branch} onChange={(e) => setBranch(e.target.value)}>
           <option value="">{t("allBranches")}</option>
           <option>Down Town</option>
           <option>Uptown</option>
-        </select>
+        </FilterSelect>
 
         {/* Payment */}
-        <select
-          value={payment}
-          onChange={(e) => setPayment(e.target.value)}
-          className="px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
-        >
+        <FilterSelect value={payment} onChange={(e) => setPayment(e.target.value)}>
           <option value="">{t("paymentAll")}</option>
           <option>Cash</option>
           <option>Credit Card</option>
           <option>PayPal</option>
           <option>Debit Card</option>
-        </select>
+        </FilterSelect>
 
         {/* Date Picker */}
         <div className="relative" ref={calendarRef}>
           {/* Trigger Button */}
           <button
             onClick={() => setCalendarOpen((o) => !o)}
-            className={`px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition
+            className={`px-4 py-2 ps-1 rounded-xl border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition
               ${calendarOpen || selected ? "border-[#F5A623] text-[#2E2E2E]" : "border-gray-200 text-gray-400"}
             `}
           >

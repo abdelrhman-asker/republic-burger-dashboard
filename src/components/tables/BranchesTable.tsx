@@ -13,6 +13,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import FilterSelect from "@/components/ui/filter-select";
 import searchIcon from "@/../public/images/searchIcon.svg";
 import editpen from "@/../public/images/editpen.svg";
 import viewEye from "@/../public/images/viewEye.svg";
@@ -105,28 +106,18 @@ export default function BranchesTable() {
               className="pl-9 pr-4 py-2 rounded-[8px] border border-gray-200 text-sm text-gray-700 bg-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition xl:w-[445px]"
             />
           </div>
-
-          <select
-            value={city}
-            onChange={handleFilterChange(setCity)}
-            className="px-4 py-2 rounded-[8px] border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
-          >
-            <option value="">{t("allCities")}</option>
-            <option value="Alexandria">Alexandria</option>
-            <option value="Cairo">Cairo</option>
-            <option value="Giza">Giza</option>
-            <option value="Mansoura">Mansoura</option>
-          </select>
-
-          <select
-            value={status}
-            onChange={handleFilterChange(setStatus)}
-            className="px-4 py-2 rounded-[8px] border border-gray-200 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30 focus:border-[#F5A623] transition"
-          >
-            <option value="">{t("statusAll")}</option>
-            <option value="Active">{t("statusActive")}</option>
-            <option value="Inactive">{t("statusInactive")}</option>
-          </select>
+<FilterSelect value={city} onChange={handleFilterChange(setCity)}>
+    <option value="">{t("allCities")}</option>
+    <option value="Alexandria">Alexandria</option>
+    <option value="Cairo">Cairo</option>
+    <option value="Giza">Giza</option>
+    <option value="Mansoura">Mansoura</option>
+  </FilterSelect>
+          <FilterSelect value={status} onChange={handleFilterChange(setStatus)}>
+    <option value="">{t("statusAll")}</option>
+    <option value="Active">{t("statusActive")}</option>
+    <option value="Inactive">{t("statusInactive")}</option>
+  </FilterSelect>
         </div>
 
         <Link
@@ -214,7 +205,7 @@ export default function BranchesTable() {
             disabled={currentPage === 1}
             className="text-[18px] font-bold text-[#FF8A00] disabled:opacity-30 cursor-pointer"
           >
-            {t("paginationPrevious")}
+         «
           </button>
 
           {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
@@ -236,7 +227,7 @@ export default function BranchesTable() {
             disabled={currentPage === totalPages}
             className="text-[18px] font-bold text-[#FF8A00] disabled:opacity-30 cursor-pointer"
           >
-            {t("paginationNext")}
+            »
           </button>
         </div>
       </div>

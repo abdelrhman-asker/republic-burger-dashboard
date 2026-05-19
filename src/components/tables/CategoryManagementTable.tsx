@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import FilterSelect from "@/components/ui/filter-select";
 import searchIcon from "@/../public/images/searchIcon.svg";
 import editpen from "@/../public/images/editpen.svg";
 import trashIco from "@/../public/images/trashIco.svg";
@@ -230,18 +231,18 @@ export default function CategoryManagementTable() {
             />
           </div>
 
-          <select
+          <FilterSelect
             value={status}
             onChange={(event) => {
               setStatus(event.target.value);
               setCurrentPage(1);
             }}
-            className="h-[38px] rounded-[8px] border border-gray-200 bg-white px-4 text-[13px] text-gray-700 focus:border-[#F5A623] focus:outline-none focus:ring-2 focus:ring-[#F5A623]/30"
+            className="text-[13px]"
           >
             <option value="">Status: All</option>
             <option value="Active">Active</option>
             <option value="Disabled">Disabled</option>
-          </select>
+          </FilterSelect>
         </div>
 
         <button
