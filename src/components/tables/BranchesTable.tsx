@@ -187,16 +187,16 @@ export default function BranchesTable() {
                     </Badge>
                   </TableCell>
                   <TableCell className="px-5 py-4 text-start">
-                    <div className="flex items-center gap-0">
+                    <div className="flex items-center gap-2">
                       <Link
                         href={`/branches/${branch.id}/edit`}
-                        className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors"
+                        className="w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors"
                       >
                         <Image src={editpen} alt={t("edit")} width={32} height={32} />
                       </Link>
                       <Link
                         href={`/branches/${branch.id}/view`}
-                        className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors"
+                        className="w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors"
                       >
                         <Image src={viewEye} alt={t("view")} width={32} height={32} />
                       </Link>

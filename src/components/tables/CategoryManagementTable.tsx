@@ -284,7 +284,7 @@ export default function CategoryManagementTable() {
                   </Badge>
                 </TableCell>
                 <TableCell className="px-5 py-3">
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-2">
                     <button onClick={() => setModalMode("edit")} className="p-1.5">
                       <Image src={editpen} alt="Edit" width={28} height={28} />
                     </button>

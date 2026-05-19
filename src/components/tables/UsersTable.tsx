@@ -203,11 +203,11 @@ export default function UsersTable() {
                     <div className="flex items-center justify-center gap-0">
                       <Link
                         href={`/users/${user.id}`}
-                        className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors"
+                        className="w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors"
                       >
                         <Image src={editpen} alt="Edit" width={32} height={32} />
                       </Link>
-                      <button className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
+                      <button className="w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
                         <Image src={viewEye} alt="View" width={32} height={32} />
                       </button>
                     </div>

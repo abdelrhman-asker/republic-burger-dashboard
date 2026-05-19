@@ -45,7 +45,7 @@ export default function Login() {
             />
 <div className="flex justify-between mt-5">
   {/* Remember Me */}
-  <label className="flex items-center gap-1 text-[10px] font-medium cursor-pointer">
+  <label className="flex items-center gap- text-[10px] font-medium cursor-pointer">
     <input
       type="checkbox"
       className="w-3 h-3 accent-primarybg cursor-pointer  "

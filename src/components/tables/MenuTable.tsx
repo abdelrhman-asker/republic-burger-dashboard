@@ -282,7 +282,7 @@ export default function MenuTable({ onAddNew }: MenuTableProps) {
 
                   {/* Actions */}
                   <TableCell className="px-5 py-3">
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-2">
                       <button className="p-1.5 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors text-base">
                         <Image src={editpen} alt="Edit" width={32} height={32} />
                       </button>

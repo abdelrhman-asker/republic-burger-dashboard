@@ -232,16 +232,16 @@ export default function PromotionalBannersTable() {
                     <div className="flex items-center justify-center gap-0">
                       <button
                         onClick={() => openEdit(banner)}
-                        className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors"
+                        className="w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors"
                       >
                         <Image src={editpen} alt="Edit" width={32} height={32} />
                       </button>
-                      <button className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
+                      <button className="w-8 rounded-lg text-gray-400 hover:text-[#F5A623] hover:bg-orange-50 transition-colors">
                         <Image src={viewEye} alt="View" width={32} height={32} />
                       </button>
                       <button
                         onClick={() => handleDelete(banner.id)}
-                        className="p-1.5 w-8 rounded-lg text-gray-400 hover:text-[#FF5E2C] hover:bg-red-50 transition-colors"
+                        className="w-8 rounded-lg text-gray-400 hover:text-[#FF5E2C] hover:bg-red-50 transition-colors"
                       >
                         <Image src={trashIco} alt="Delete" width={32} height={32} />
                       </button>
